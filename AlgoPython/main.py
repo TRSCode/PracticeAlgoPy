@@ -1,3 +1,5 @@
+# https://www.youtube.com/watch?v=fW_OS3LGB9Q
+
 # ----------------- Factorials - Recursive and Iterative
 
 # def iterative_factorial(n):
@@ -146,3 +148,53 @@
 #     print("Element is present at index", str(result))
 # else:
 #     print("Element is not present in the array")
+
+# --------------------- Bubble sort
+
+# def bubble_optimized(A):
+#     iterations = 0
+#     for i in range(len(A)):
+#         for j in range(len(A)-i-1):
+#             iterations += 1
+#             if A[j] > A[j+1]:
+#                 A[j], A[j+1] = A[j+1], A[j]
+#     return A, iterations
+
+# A = [9,8,7,6,5,4,3,2,1]
+# print(bubble_optimized(A))
+
+# --------------------- Bubble sort - unoptimized
+
+# def swap(A, i, j):
+#     temp = A[i]
+#     A[i] = A[j]
+#     A[j] = temp
+
+# def bubble_sort_un_op(A):
+#     iterations = 0
+#     for i in A:
+#         for j in range(len(A)-1):
+#             iterations += 1
+#             if A[j] > A[j+1]:
+#                 swap(A, j, j+1)
+#     return A, iterations
+
+# A = [9,8,7,6,5,4,3,2,1]
+# print(bubble_sort_un_op(A))
+
+# --------------------- Insertion sort
+
+# def insert_sort(A):
+#     for j in range(1, len(A)):
+#         key = A[j]
+#         i = j - 1
+#         while i >= 0 and A[i] > key:
+#             A[i+1] = A[i]
+#             i -= 1
+#         A[i+1] = key
+#     return A
+
+# A = [9,8,7,6,5,4,3,2,1]
+# print(insert_sort(A))
+
+# @ 40:18
