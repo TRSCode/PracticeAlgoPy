@@ -197,4 +197,157 @@
 # A = [9,8,7,6,5,4,3,2,1]
 # print(insert_sort(A))
 
-# @ 40:18
+# --------------------- Linked List (linked by nodes)
+
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
+
+# class LinkedList:
+
+#     def traversal(self):
+#         first = self.head
+#         while first:
+#             print(first.data)
+#             first = first.next
+
+#     def insert_new_head(self, new_data):
+#         new_node = Node(new_data)
+#         new_node.next = self.head
+#         self.head = new_node
+
+#     def search(self, x):
+#         temp = self.head
+#         while temp is not None:
+#             if temp.data == x:
+#                 return True
+#             temp = temp.next
+#         return False
+    
+#     def delete_node(self, data):
+#         temp = self.head
+#         while temp is not None:
+#             if temp.data == data:
+#                 break
+#             prev = temp
+#             temp = temp.next
+#         prev.next = temp.next
+
+#     def delete_tail(self):
+#         temp = self.head
+#         while temp.next.next is not None:
+#             temp = temp.next
+#         temp.next = None
+
+# family = LinkedList()
+# family.head = Node("Bob")
+# wife = Node("Amy")
+# first_kid = Node("Max")
+# second_kid = Node("Jenny")
+
+# family.head.next = wife
+# wife.next = first_kid
+# first_kid.next = second_kid
+
+# # family.traversal()
+# family.insert_new_head("Dave")
+# family.delete_node("Bob")
+# family.delete_tail()
+# family.traversal()
+# # print(family.search("Bob"))
+
+# --------------------- Hash Table ( associative array, hash function, key/value pairs, collision, chaining) just talked about in video @53 mins
+# practice with the Robin-Karp algorithm
+
+# some problems are complet, so solve them in smaller bits (divide and conquer method)
+# recursion can work, but may over utilize memory, so you may need to save into Data Structure: stack, queue, Priority Queue...
+# consider Breadth First Search (BFS) and Branch and Bound method for fuction optimization
+
+# --------------------- Merge Sort
+
+# example 1 - brute force
+
+# A = [-5,-23,5,0,23,-6,23,67]
+# C = []
+
+# while A:
+#     minimum = A[0]
+#     for x in A:
+#         if x < minimum:
+#             minimum = x
+#     C.append(minimum)
+#     A.remove(minimum)
+
+# print(C)
+
+# example 2 - merge sort (2 halves need to be sorted for this to work)
+
+# def merging(left, right):
+#     C = []
+#     while min(len(left), len(right)) > 0:
+#         if left[0] > right[0]:
+#             insert = right.pop(0)
+#             C.append(insert)
+#         elif left[0] < right[0]:
+#             insert = left.pop(0)
+#             C.append(insert)
+#     if len(left) > 0:
+#         for i in left:
+#             C.append(i)
+#     if len(right) > 0:
+#         for i in right:
+#             C.append(i)
+#     return C
+
+# left = [2,5,6,10]
+# right = [3,4,12,20]
+
+# print(merging(left, right))
+
+# example 3 - sort recursively top down method
+
+# def sortArray(A):
+#     if len(A) <= 1:
+#         return A
+#     middle = len(A) // 2
+#     left = sortArray(A[:middle])
+#     right = sortArray(A[middle:])
+#     merged = []
+#     while left and right:
+#         if left[0] < right[0]:
+#             merged.append(left.pop(0))
+#         else:
+#             merged.append(right.pop(0))
+#     merged.extend(right if right else left)
+#     return merged
+
+# print (sortArray([2,5,-6,10,3,4,-12,20]))
+
+# example 4 - sort recursively bottom up method
+
+# class Solution(object):
+#     def sortArray(self, nums):
+#         #iterative merge sort using sorted
+#         mid = len(nums)//2
+#         left = nums[:mid]
+#         right = nums[mid:]
+#         C = []
+#         while min(len(left), len(right)) > 0:
+#             if left[0] > right[0]:
+#                 insert = right.pop(0)
+#                 C.append(insert)
+#             elif left[0] < right[0]:
+#                 insert = left.pop(0)
+#                 C.append(insert)
+#         if len(left) > 0:
+#             for i in left:
+#                 C.append(i)
+#         if len(right) > 0:
+#             for i in right:
+#                 C.append(i)
+#         return C
+    
+# matrix multiplecation
+
+# @1:07:40
