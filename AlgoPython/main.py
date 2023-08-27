@@ -426,34 +426,34 @@
 
 # --------------------- Kids with Greatest Candies (Greedy Algorithm)
 
-# --------------------- Fractional knapsack (Greedy Algorithm)
-weight = [30,50,10,70,40]
-value = [150,100,90,140,120]
-capacity = 150
+# --------------------- Fractional knapsack (Greedy Algorithm) - Bounded Knapsack Problem
+# weight = [30,50,10,70,40]
+# value = [150,100,90,140,120]
+# capacity = 150
 
-def fractional_knapsack(value, weight, capacity):
-    items = list(range(len(value)))
-    print("Items:", items)
-    ratio = [v//w for v,w in zip(value, weight)]
-    print("Ratios:", ratio)
-    srt_ratios = sorted(ratio, reverse=True)
-    print("Sorted Ratios:", srt_ratios)
-    items.sort(key=lambda i: ratio[i], reverse=True)
-    # print("Sorted Items:", items)
+# def fractional_knapsack(value, weight, capacity):
+#     items = list(range(len(value)))
+#     print("Items:", items)
+#     ratio = [v//w for v,w in zip(value, weight)]
+#     print("Ratios:", ratio)
+#     srt_ratios = sorted(ratio, reverse=True)
+#     print("Sorted Ratios:", srt_ratios)
+#     items.sort(key=lambda i: ratio[i], reverse=True)
+#     # print("Sorted Items:", items)
 
-    max_value = 0
-    fractions = [0] * len(value)
-    print(fractions)
-    for i in items:
-        if weight[i] <= capacity:
-            fractions[i] = 1
-            max_value += value[i]
-            capacity -= weight[i]
-        else:
-            fractions[i] = capacity // weight[i]
-            max_value += value[i] * capacity // weight[i]
+#     max_value = 0
+#     fractions = [0] * len(value)
+#     print(fractions)
+#     for i in items:
+#         if weight[i] <= capacity:
+#             fractions[i] = 1
+#             max_value += value[i]
+#             capacity -= weight[i]
+#         else:
+#             fractions[i] = capacity // weight[i]
+#             max_value += value[i] * capacity // weight[i]
             
-    return max_value
-print(fractional_knapsack(value, weight, capacity))
+#     return max_value
+# print(fractional_knapsack(value, weight, capacity))
 
-
+#  @1:31:50
