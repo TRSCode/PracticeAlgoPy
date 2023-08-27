@@ -402,4 +402,58 @@
 
 # print(strassen_iter(x,y))
 
-# @1:17:22
+#  lesson 4
+# --------------------- Assign Mice to Holes (Greedy Algorithm)
+# def assignHole(mice, holes):
+#     # Base - num of mice and holes are equal
+#     if len(mice) != len(holes):
+#         return "Number of mice and holes not the same"
+#     # Sort the lists
+#     mice.sort()
+#     holes.sort()
+#     #  Finding max difference between mice and holes
+#     max_diff = 0
+#     for i in range(len(mice)):
+#         if max_diff < abs(mice[i] - holes[i]):
+#             max_diff = abs(mice[i] - holes[i])
+#     return max_diff
+# mice = [4,-4,2]
+# holes = [4,0,5]
+# #  the required answer is returned from the function
+# min_time = assignHole(mice, holes)
+# print("The last mouse gets into the hole in time:", min_time)
+
+
+# --------------------- Kids with Greatest Candies (Greedy Algorithm)
+
+# --------------------- Fractional knapsack (Greedy Algorithm)
+weight = [30,50,10,70,40]
+value = [150,100,90,140,120]
+capacity = 150
+
+def fractional_knapsack(value, weight, capacity):
+    items = list(range(len(value)))
+    print("Items:", items)
+    ratio = [v//w for v,w in zip(value, weight)]
+    print("Ratios:", ratio)
+    srt_ratios = sorted(ratio, reverse=True)
+    print("Sorted Ratios:", srt_ratios)
+    items.sort(key=lambda i: ratio[i], reverse=True)
+    # print("Sorted Items:", items)
+
+    max_value = 0
+    fractions = [0] * len(value)
+    print(fractions)
+    for i in items:
+        if weight[i] <= capacity:
+            fractions[i] = 1
+            max_value += value[i]
+            capacity -= weight[i]
+        else:
+            fractions[i] = capacity // weight[i]
+            max_value += value[i] * capacity // weight[i]
+            
+    return max_value
+print(fractional_knapsack(value, weight, capacity))
+
+
